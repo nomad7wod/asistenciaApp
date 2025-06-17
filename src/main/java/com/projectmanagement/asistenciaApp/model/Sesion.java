@@ -9,7 +9,8 @@ import java.time.LocalTime;
 public class Sesion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_sesion;
+    @Column(name = "id_sesion")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_seccion", nullable = false)
@@ -25,8 +26,8 @@ public class Sesion {
     private String tipo_ingreso;
 
     // Getters y setters
-    public Integer getId_sesion() { return id_sesion; }
-    public void setId_sesion(Integer id_sesion) { this.id_sesion = id_sesion; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public Seccion getSeccion() { return seccion; }
     public void setSeccion(Seccion seccion) { this.seccion = seccion; }

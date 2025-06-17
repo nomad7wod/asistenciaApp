@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class AsistenciaService {
@@ -37,4 +38,11 @@ public class AsistenciaService {
 
         return asistenciaRepository.save(asistencia);
     }
+
+    public List<Asistencia> obtenerAsistenciasPorSesion(Integer idSesion) {
+        return asistenciaRepository.findBySesionId(idSesion);
+
+    }
+
+
 }

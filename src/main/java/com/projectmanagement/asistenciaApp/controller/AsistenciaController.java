@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -36,6 +37,18 @@ public class AsistenciaController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al registrar asistencia");
         }
     }
+
+    @GetMapping("/sesion/{idSesion}")
+    public ResponseEntity<List<Asistencia>> listarAsistenciasPorSesion(@PathVariable Integer idSesion) {
+        List<Asistencia> asistencias = asistenciaService.obtenerAsistenciasPorSesion(idSesion);
+        if (asistencias.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(asistencias);
+    }
+
+
+
 
 
 }
