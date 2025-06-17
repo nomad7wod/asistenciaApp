@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 @Table(name = "secciones")
 public class Seccion {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_seccion;
+    @Column(name = "id_seccion")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_curso" , nullable = false)
@@ -14,8 +15,8 @@ public class Seccion {
     private String nombre;
 
     // Getters y setters
-    public Integer getId_seccion() { return id_seccion; }
-    public void setId_seccion(Integer id_seccion) { this.id_seccion = id_seccion; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public Curso getCurso() { return curso; }
     public void setCurso(Curso curso) { this.curso = curso; }

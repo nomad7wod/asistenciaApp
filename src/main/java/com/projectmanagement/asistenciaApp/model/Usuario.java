@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_usuario;
+    @Column(name = "id_usuario")
+    private Integer id;
 
     private String nombre;
 
@@ -21,8 +22,8 @@ public class Usuario {
     private String foto_referencia;
 
     // Getters y setters
-    public Integer getId_usuario() { return id_usuario; }
-    public void setId_usuario(Integer id_usuario) { this.id_usuario = id_usuario; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
